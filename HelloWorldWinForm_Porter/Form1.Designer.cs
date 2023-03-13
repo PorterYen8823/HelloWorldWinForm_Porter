@@ -30,11 +30,13 @@
         {
             btnSayHello = new Button();
             label1 = new Label();
+            label2 = new Label();
+            btnCount = new Button();
             SuspendLayout();
             // 
             // btnSayHello
             // 
-            btnSayHello.Location = new Point(74, 132);
+            btnSayHello.Location = new Point(234, 73);
             btnSayHello.Name = "btnSayHello";
             btnSayHello.Size = new Size(191, 50);
             btnSayHello.TabIndex = 0;
@@ -51,11 +53,32 @@
             label1.TabIndex = 1;
             label1.Text = "label1";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(74, 153);
+            label2.Name = "label2";
+            label2.Size = new Size(61, 23);
+            label2.TabIndex = 2;
+            label2.Text = "label2";
+            // 
+            // btnCount
+            // 
+            btnCount.Location = new Point(234, 139);
+            btnCount.Name = "btnCount";
+            btnCount.Size = new Size(191, 50);
+            btnCount.TabIndex = 3;
+            btnCount.Text = "Count";
+            btnCount.UseVisualStyleBackColor = true;
+            btnCount.Click += btnCount_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnCount);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnSayHello);
             Name = "Form1";
@@ -68,5 +91,7 @@
 
         private Button btnSayHello;
         private Label label1;
+        private Label label2;
+        private Button btnCount;
     }
 }
