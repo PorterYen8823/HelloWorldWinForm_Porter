@@ -43,9 +43,25 @@ namespace HelloWorldWinForm_Porter
             for (int i = 0; i <= 10; i++)
             {
 
-                LabelUpdate("label2", i.ToString());                
+                LabelUpdate("label2", i.ToString());
                 SpinWait.SpinUntil(() => false, 300);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            LabelUpdate("lblCurrentTime", DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
+
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            timer1.Stop();
         }
     }
 }
