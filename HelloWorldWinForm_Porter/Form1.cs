@@ -74,6 +74,7 @@ namespace HelloWorldWinForm_Porter
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // display Timer until form close
             cancellationTokenSource.Token.Register(() => { });
             Task.Run(() => DisplayTimer(cancellationTokenSource.Token));
         }
