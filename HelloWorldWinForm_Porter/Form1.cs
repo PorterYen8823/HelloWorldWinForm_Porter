@@ -6,19 +6,19 @@ namespace HelloWorldWinForm_Porter
     {
 
         CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-       
+
         delegate void deleUpdateLabel(string msg);
         public void UpdateLabel2(string msg)
         {
-            if (this.InvokeRequired)
+            if (this.label2.InvokeRequired)
             {
 
-                deleUpdateLabel deleUL = new deleUpdateLabel(UpdateLabel2);
-                this.BeginInvoke(deleUL, msg);
+                // deleUpdateLabel deleUL = new deleUpdateLabel(UpdateLabel2);
+                this.Invoke(new deleUpdateLabel(UpdateLabel2), msg);
             }
             else
             {
-                this.label2.Text = msg;
+                label2.Text = msg;
 
             }
         }
@@ -57,6 +57,23 @@ namespace HelloWorldWinForm_Porter
                 SpinWait.SpinUntil(() => false, 100);
             }
         }
+        private void DisplayNumber2()
+        {
+            for (int i = 0; i <= 10; i++)
+            {
+                label2.Invoke(new Action(() => label2.Text = i.ToString()));
+                SpinWait.SpinUntil(() => false, 100);
+            }
+        }
+
+        private void DisplayNumber3()
+        {
+            for (int i = 0; i <= 10; i++)
+            {
+                label2.Invoke((MethodInvoker)(() => label2.Text = i.ToString()));
+                SpinWait.SpinUntil(() => false, 100);
+            }
+        }
 
         private void DisplayTimer(CancellationToken token)
         {
@@ -67,6 +84,8 @@ namespace HelloWorldWinForm_Porter
                 SpinWait.SpinUntil(() => false, 1000);
             }
         }
+
+
         private void btnCount_Click(object sender, EventArgs e)
         {
             Task.Run(() => DisplayNumber());
@@ -79,11 +98,21 @@ namespace HelloWorldWinForm_Porter
             Task.Run(() => DisplayTimer(cancellationTokenSource.Token));
         }
 
-        
+
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             cancellationTokenSource.Cancel();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Task.Run(() => DisplayNumber2());
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Task.Run(() => DisplayNumber3());
         }
     }
 }
