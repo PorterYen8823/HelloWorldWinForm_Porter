@@ -28,20 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             btnSayHello = new Button();
             label1 = new Label();
             label2 = new Label();
             btnCount = new Button();
             lblCurrentTime = new Label();
-            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // btnSayHello
             // 
-            btnSayHello.Location = new Point(234, 73);
+            btnSayHello.Location = new Point(149, 48);
+            btnSayHello.Margin = new Padding(2, 2, 2, 2);
             btnSayHello.Name = "btnSayHello";
-            btnSayHello.Size = new Size(191, 50);
+            btnSayHello.Size = new Size(122, 33);
             btnSayHello.TabIndex = 0;
             btnSayHello.Text = "Say Hello";
             btnSayHello.UseVisualStyleBackColor = true;
@@ -50,26 +49,29 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(74, 87);
+            label1.Location = new Point(47, 57);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(61, 23);
+            label1.Size = new Size(42, 15);
             label1.TabIndex = 1;
             label1.Text = "label1";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(74, 153);
+            label2.Location = new Point(47, 100);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(61, 23);
+            label2.Size = new Size(42, 15);
             label2.TabIndex = 2;
             label2.Text = "label2";
             // 
             // btnCount
             // 
-            btnCount.Location = new Point(234, 139);
+            btnCount.Location = new Point(149, 91);
+            btnCount.Margin = new Padding(2, 2, 2, 2);
             btnCount.Name = "btnCount";
-            btnCount.Size = new Size(191, 50);
+            btnCount.Size = new Size(122, 33);
             btnCount.TabIndex = 3;
             btnCount.Text = "Count";
             btnCount.UseVisualStyleBackColor = true;
@@ -78,27 +80,24 @@
             // lblCurrentTime
             // 
             lblCurrentTime.AutoSize = true;
-            lblCurrentTime.Location = new Point(74, 215);
+            lblCurrentTime.Location = new Point(47, 140);
+            lblCurrentTime.Margin = new Padding(2, 0, 2, 0);
             lblCurrentTime.Name = "lblCurrentTime";
-            lblCurrentTime.Size = new Size(138, 23);
+            lblCurrentTime.Size = new Size(90, 15);
             lblCurrentTime.TabIndex = 4;
             lblCurrentTime.Text = "lblCurrentTime";
             // 
-            // timer1
-            // 
-            timer1.Interval = 1000;
-            timer1.Tick += timer1_Tick;
-            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(11F, 23F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(509, 293);
             Controls.Add(lblCurrentTime);
             Controls.Add(btnCount);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnSayHello);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Form1";
             Text = "Form1";
             FormClosed += Form1_FormClosed;
@@ -114,6 +113,5 @@
         private Label label2;
         private Button btnCount;
         private Label lblCurrentTime;
-        private System.Windows.Forms.Timer timer1;
     }
 }
