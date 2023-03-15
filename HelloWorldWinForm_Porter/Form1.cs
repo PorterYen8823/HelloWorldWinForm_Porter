@@ -61,7 +61,15 @@ namespace HelloWorldWinForm_Porter
         {
             for (int i = 0; i <= 10; i++)
             {
-                label2.Invoke(new Action(() => label2.Text = i.ToString()));
+                this.Invoke(new Action(() => label2.Text = i.ToString()));
+                if ((i % 2) == 0)
+                {
+                    this.Invoke(new Action(() => label2.BackColor = Color.LimeGreen));
+                }
+                else
+                {
+                    this.Invoke(new Action(() => label2.BackColor = Color.LightYellow));
+                }
                 SpinWait.SpinUntil(() => false, 100);
             }
         }
@@ -70,7 +78,7 @@ namespace HelloWorldWinForm_Porter
         {
             for (int i = 0; i <= 10; i++)
             {
-                label2.Invoke((MethodInvoker)(() => label2.Text = i.ToString()));
+                this.Invoke((MethodInvoker)(() => label2.Text = i.ToString()));
                 SpinWait.SpinUntil(() => false, 100);
             }
         }
@@ -80,7 +88,8 @@ namespace HelloWorldWinForm_Porter
             while (!token.IsCancellationRequested)
             {
 
-                UpdatelblCurrentTime();
+                //  UpdatelblCurrentTime();
+                this.Invoke(new Action(() => lblCurrentTime.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")));
                 SpinWait.SpinUntil(() => false, 1000);
             }
         }
